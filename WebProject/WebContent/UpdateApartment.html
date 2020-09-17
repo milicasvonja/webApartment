@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+  <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
+
+    <script src="./js/layout/Navbar.js"></script>
+    <script src="./js/updateApartment.js"></script>
+</head>
+<body>
+	 <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top"></nav>
+
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">Update Appartment</div>
+            <div class="card-body">
+              <form class="form-horizontal" id="update" method="POST">
+                <div class="form-group">
+                  <label for="appartment" class="cols-sm-2 control-label"
+                    >Appartment Type</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-user fa" aria-hidden="true"></i
+                      ></span>
+                      <select
+                        class="form-control"
+                        name="appartmentType"
+                        id="appartmentType"
+                      >
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="surname" class="cols-sm-2 control-label"
+                    >Number of rooms</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group" id="roomNumbersDiv">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-envelope fa" aria-hidden="true"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="guests" class="cols-sm-2 control-label"
+                    >Number of guests</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group" id="questNumberDiv">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-envelope fa" aria-hidden="true"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+                           
+                <div class="form-group">
+                  <label for="price" class="cols-sm-2 control-label"
+                    >Price</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group" id="priceDiv">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-lock fa-lg" aria-hidden="true"></i
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="price" class="cols-sm-2 control-label"
+                    >Amenities</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group" id="checkboxes"></div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="submit"
+                    class="btn btn-primary btn-lg btn-block login-button"
+                    value="Update"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+</html>

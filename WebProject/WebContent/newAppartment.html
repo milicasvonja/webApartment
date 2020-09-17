@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="ISO-8859-1" />
+    <title>Insert title here</title>
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="jquery-3.3.1.min.js"></script>
+
+    <script src="./js/layout/Navbar.js"></script>
+    <script src="newAppartment.js"></script>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/css/ol.css" type="text/css">
+    <style>
+      .map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.3.1/build/ol.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top"></nav>
+
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">New Appartment</div>
+            <div class="card-body">
+              <form class="form-horizontal" id="newApp-form" method="POST">
+                <div class="form-group">
+                  <label for="appartment" class="cols-sm-2 control-label"
+                    >Appartment Type</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-user fa" aria-hidden="true"></i
+                      ></span>
+                      <select
+                        class="form-control"
+                        name="appartmentType"
+                        id="appartmentType"
+                      >
+                        <option value="APARTMENT" selected>APARTMENT</option>
+                        <option value="ROOM">ROOM</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="surname" class="cols-sm-2 control-label"
+                    >Number of rooms</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-envelope fa" aria-hidden="true"></i
+                      ></span>
+                      <input
+                        type="number"
+                        class="form-control"
+                        name="surname"
+                        id="rooms"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="guests" class="cols-sm-2 control-label"
+                    >Number of guests</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-envelope fa" aria-hidden="true"></i
+                      ></span>
+                      <input
+                        type="number"
+                        class="form-control"
+                        name="guests"
+                        id="guests"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="password" class="cols-sm-2 control-label"
+                    >Location</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-envelope fa" aria-hidden="true"></i
+                      ></span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="street"
+                        id="street"
+                        placeholder="Street"
+                        required
+                      />
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-envelope fa" aria-hidden="true"></i
+                      ></span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="number"
+                        id="number"
+                        placeholder="Number"
+                        required
+                      />
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-envelope fa" aria-hidden="true"></i
+                      ></span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="city"
+                        id="city"
+                        placeholder="City"
+                        required
+                      />
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-envelope fa" aria-hidden="true"></i
+                      ></span>
+                      <input
+                        type="number"
+                        class="form-control"
+                        name="postal"
+                        id="postal"
+                        placeholder="Postal code"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <label for="password" class="cols-sm-2 control-label"
+                    >Coordinates</label
+                  >
+                   <div id="map" class="map"></div>
+				    <script type="text/javascript">
+				      var map = new ol.Map({
+				        target: 'map',
+				        layers: [
+				          new ol.layer.Tile({
+				            source: new ol.source.OSM()
+				          })
+				        ],
+				        view: new ol.View({
+				          center: ol.proj.fromLonLat([37.41, 8.82]),
+				          zoom: 4
+				        })
+				      });
+				    </script>
+                  <div class="cols-sm-5">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-envelope fa" aria-hidden="true"></i
+                      ></span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="latitude"
+                        id="latitude"
+                        placeholder="Latitude"
+                        required
+                      />
+                    </div>
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-envelope fa" aria-hidden="true"></i
+                      ></span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="longitude"
+                        id="longitude"
+                        placeholder="Longitude"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="confirm" class="cols-sm-2 control-label"
+                    >Start date</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-lock fa-lg" aria-hidden="true"></i
+                      ></span>
+                      <input type="date" id="startDate" name="startDate" />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="confirm" class="cols-sm-2 control-label"
+                    >End date</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-lock fa-lg" aria-hidden="true"></i
+                      ></span>
+                      <input type="date" id="endDate" name="endDate" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="price" class="cols-sm-2 control-label"
+                    >Price</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-lock fa-lg" aria-hidden="true"></i
+                      ></span>
+                      <input
+                        type="number"
+                        class="form-control"
+                        name="price"
+                        id="price"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="price" class="cols-sm-2 control-label"
+                    >Amenities</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group" id="checkboxes"></div>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                	<input type="file" id="picture">
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="submit"
+                    class="btn btn-primary btn-lg btn-block login-button"
+                    value="Create"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jquery-3.3.1.min.js"></script>
+
+    <script src="./js/layout/Navbar.js"></script>
+    <script src="./js/admin/Amenity.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top"></nav>
+
+    <div id="amenities"></div>
+
+    <!-- New Amenity Form -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">New Amenity</div>
+            <div class="card-body">
+              <form class="form-horizontal" id="new-amenity-form" method="POST">
+                <div class="form-group">
+                  <label for="amenity" class="cols-sm-2 control-label"
+                    >Amenity</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-envelope fa" aria-hidden="true"></i
+                      ></span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="amenity"
+                        id="amenity"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="submit"
+                    class="btn btn-primary btn-lg btn-block login-button"
+                    value="Create"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Amenity Form -->
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">Edit Amenity</div>
+            <div class="card-body">
+              <form class="form-horizontal" id="edit-amenity-form">
+                <div class="form-group">
+                  
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-envelope fa" aria-hidden="true"></i
+                      ></span>
+                      <input
+                        type="hidden"
+                        class="form-control"
+                        name="amenity-id"
+                        id="amenity-id"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <label for="surname" class="cols-sm-2 control-label"
+                    >Amenity</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-envelope fa" aria-hidden="true"></i
+                      ></span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="edit-amenity"
+                        id="edit-amenity"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input
+                    type="submit"
+                    class="btn btn-primary btn-lg btn-block login-button"
+                    value="Edit"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </body>
+</html>

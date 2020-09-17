@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="jquery-3.3.1.min.js"></script>
+
+<script src="./js/layout/Navbar.js"></script>
+<script src="homepage.js"></script>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+.container {
+  padding: 2rem 0rem;
+}
+
+h4 {
+  margin: 2rem 0rem 1rem;
+}
+
+.table-image {
+  td, th {
+    vertical-align: middle;
+  }
+}
+.filterable {
+    margin-top: 15px;
+}
+.filterable .panel-heading .pull-right {
+    margin-top: -20px;
+}
+
+.filterable .filters input[disabled] {
+    background-color: transparent;
+    border: none;
+    cursor: auto;
+    box-shadow: none;
+    padding: 0;
+    height: auto;
+}
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]::-moz-placeholder {
+    color: #333;
+}
+.filterable .filters input[disabled]:-ms-input-placeholder {
+    color: #333;
+}
+
+</style>
+</head>
+<body class="antialiased bg-gray-200 font-sans">
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top"></nav>
+
+<h2 style="backgorund=yellow;text-align: center;">Looking for apartments?</h2>
+<br>
+
+<br>
+<div class="row">
+  <div class="col">
+	<form id="search">
+	  <div class="form-group">
+	    <label for="exampleInputEmail1">Place</label>
+	    <input type="text" name="value" id="location" aria-describedby="emailHelp" placeholder="Enter Location">
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputPassword1">Sorting</label>
+	    <select id="sort" name="sort">
+	    	<option value="DATE_ASC">Date ascending</option>
+	    	<option value="DATE_DESC">Date descending</option>
+	    	<option value="GUEST_ASC">guests ascending</option>
+	    	<option value="GUEST_DESC">guests descending</option>
+	    	<option value="HOST_ASC">host ascending</option>
+	    	<option value="HOST_DESC">host descending</option>
+	    	<option value="PRICE_ASC">Price ascending</option>
+	    	<option value="PRICE_DESC">Price descending</option>
+	    	<option value="ROOM_ASC">Rooms ascending</option>
+	    	<option value="ROOM_DESC">Rooms descending</option>
+	    	<option value="TYPE_ASC">Type ascending</option>
+	    	<option value="TYPE_DESC">Type descending</option>
+	    </select>
+	  </div>
+	  <button type="submit" class="btn btn-secondary">Search</button>
+	</form>
+  </div>
+  <div class="w-100"></div>
+    <div class="col">
+    <p>More specified?</p>
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+	  Advanced search
+	</button>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Search</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="advancedSearch" method = "POST">
+        	<table>
+        		<tr>
+        			<td>Start Date</td><td><input type="date" id="startDate"></td>
+        		</tr>
+        		<tr>
+        			<td>End Date</td><td><input type="date" id="endDate"></td>
+        		</tr>
+        		<tr>
+        			<td>City</td><td><input type="text" id="city"></td>
+        		</tr>
+        		<tr>
+        			<td>Price min</td><td><input type="number" id="pricemin"></td>
+        		</tr>
+        		<tr>
+        			<td>Price max</td><td><input type="number" id="pricemax"></td>
+        		</tr>
+        		<tr>
+        			<td>Rooms min</td><td><input type="number" id="roomsmin"></td>
+        		</tr>
+        		<tr>
+        			<td>Rooms max</td><td><input type="number" id="roomsmax"></td>
+        		</tr>
+        		<tr>
+        			<td>Guests min</td><td><input type="number" id="guestmin"></td>
+        		</tr>
+        		<tr>
+        			<td>Guests max</td><td><input type="number" id="guestmax"></td>
+        		</tr>
+        		<tr>
+        			<td>Sort</td>
+        			<td><select id="sort">
+        					<option value="PRICE_MIN" selected>Price Min</option>
+        					<option value="PRICE_MAX">Price Max</option>
+        				</select>
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>
+        				Amenities<div class="input-group" id="checkboxes"></div>
+        			</td>
+        		</tr>
+        		<tr>
+        			<td><input type="submit" value="Search"></td>
+        		</tr>
+        	</table>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br></br>
+<div id="mainTable" class="container">
+  <div class="row">
+    <div class="panel panel-primary filterable">
+            <div class="panel-heading">
+                <h3 class="panel-title">Apartments</h3>
+      		</div>
+      </div>
+		<table class="table" id="result">
+		  <thead>
+		    <tr>
+		      <th><input type="text" class="form-control" placeholder="Image" disabled></th>
+		      <th><input type="text" class="form-control" placeholder="Appartment type" disabled></th>
+		      <th><input type="text" class="form-control" placeholder="Location" disabled></th>
+		      <th><input type="text" class="form-control" placeholder="Rooms" disabled></th>
+		      <th><input type="text" class="form-control" placeholder="Guests" disabled></th>
+		      <th><input type="text" class="form-control" placeholder="Price" disabled></th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  
+		  </tbody>
+		</table>   
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Host's table for his apartments -->
+<div class="container" id="hostActiveTable">
+  <div class="row">
+  	 <div class="panel panel-primary filterable">
+            <div class="panel-heading">
+                <h3 class="panel-title">Active Apartments</h3>
+      		</div>
+      </div>
+		<table class="table table-image" id="hostAp"  style="background:lightgreen">
+		  <thead>
+		    <tr>
+		      <th scope="col">Result</th>
+		      <th scope="col">Image</th>
+		      <th scope="col">Appartment type</th>
+		      <th scope="col">Location</th>
+		      <th scope="col">Rooms</th>
+		      <th scope="col">Guests</th>
+		      <th scope="col">Price</th>
+		      <th scope="col">Status</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		    </tr>
+		  </tbody>
+		</table>   
+    </div>
+  </div>
+</div>
+
+<!-- Host's table for his apartments -->
+<div class="container" id="hostInactiveTable" >
+<h3>My Inactive apartments</h3>
+  <div class="row">
+    <div class="col-12">
+		<table class="table table-image" id="hostInactiveAp" style="background:orange">
+		  <thead>
+		    <tr>
+		      <th scope="col">Result</th>
+		      <th scope="col">Image</th>
+		      <th scope="col">Appartment type</th>
+		      <th scope="col">Location</th>
+		      <th scope="col">Rooms</th>
+		      <th scope="col">Guests</th>
+		      <th scope="col">Price</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		    </tr>
+		  </tbody>
+		</table>   
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

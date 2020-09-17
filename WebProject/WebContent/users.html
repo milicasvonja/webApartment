@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jquery-3.3.1.min.js"></script>
+
+    <script src="./js/layout/Navbar.js"></script>
+    <script src="./js/admin/Users.js"></script>
+
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top"></nav>
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">Search users</div>
+            <div class="card-body">
+              <form class="form-horizontal" id="newApp-form" method="POST">
+                <div class="form-group">
+                  <label for="username" class="cols-sm-2 control-label"
+                    >Username</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-envelope fa" aria-hidden="true"></i
+                      ></span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="username"
+                        id="username"
+                        
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="gender" class="cols-sm-2 control-label"
+                    >Gender</label
+                  >
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-user fa" aria-hidden="true"></i
+                      ></span>
+                      <select class="form-control" name="gender" id="gender">
+                        <option value="MALE" selected>Male</option>
+                        <option value="FEMALE">Female</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="role" class="cols-sm-2 control-label">Role</label>
+                  <div class="cols-sm-10">
+                    <div class="input-group">
+                      <span class="input-group-addon"
+                        ><i class="fa fa-user fa" aria-hidden="true"></i
+                      ></span>
+                      <select class="form-control" name="role" id="role">
+                        <option value="ADMIN" selected>Admin</option>
+                        <option value="HOST">Host</option>
+                        <option value="GUEST">Guest</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input
+                    type="submit"
+                    class="btn btn-primary btn-lg btn-block login-button"
+                    value="Search"
+                  />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <table class="table">
+        <thead>
+          <th>ID</th>
+          <th>Username</th>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Gender</th>
+          <th>Role</th>
+          <th>Status</th>
+        </thead>
+        <tbody id="users"></tbody>
+      </table>
+    </div>
+  </body>
+</html>

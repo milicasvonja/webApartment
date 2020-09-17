@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+	<script src="jquery-3.3.1.min.js"></script>
+	 <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./js/layout/Navbar.js"></script>
+    <script src="./js/admin/Reservations.js"></script>
+</head>
+<body>
+	 <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top"></nav>
+	 
+	  <h3>All reservations in system:</h3>
+	 <table class="table" id="reservations">
+		  <thead class="thead-dark">
+		    <tr>	 
+		      <th scope="col">Apartment location</th>
+		      <th scope="col">Apartment type</th>
+		      <th scope="col">Start Date</th>
+		      <th scope="col">Nights</th>
+		      <th scope="col">Status</th>
+		      <th scope="col">Host</th>
+		      <th scope="col">Guest</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  </tbody>
+		  
+		  <br>
+		  <h4>Search reservations by user who created reservation</h4>
+		  <form id="search" method="GET">
+		  	<table>
+		  		<tr>
+		  			<td>Username: </td><td><input type="text" id="username"></td>
+		  			<td>Status: </td>
+		  			<td>
+		  				<select id="status">
+		  					<option value="ACCEPTED" selected>ACCEPTED</option>
+		  					<option value="REJECTED" selected>REJECTED</option>
+		  					<option value="CREATED" selected>CREATED</option>
+		  					<option value="ENDED" selected>ENDED</option>
+		  				</select>
+		  			</td>
+		  		</tr>
+		  		<tr>
+		  			<td><input type="submit" value="Search"></td>
+		  		</tr>
+		  	</table>
+		  </form>
+</body>
+</html>

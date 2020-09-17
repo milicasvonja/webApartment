@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="jquery-3.3.1.min.js"></script>
+
+<script src="./js/layout/Navbar.js"></script>
+<script src="updateProfile.js"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top"></nav>
+<br>
+<div class="container">
+<div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header" style="background:cyan;">My profile</div>
+                            <div class="card-body">
+
+                                <form class="form-horizontal" id="update-form" method="POST">
+
+                                    <div class="form-group">
+                                        <label for="name" class="cols-sm-2">Your Name</label>
+                                        <input type="text" class="cols-sm-6 " name="name" id="name" required/>                                   
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="surname" class="cols-sm-2 control-label">Your Surname</label>
+                                        <input type="text" class="cols-sm-6 " name="surname" id="surname" placeholder="Enter your Last Name" required/>                                 
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="username" class="cols-sm-2 control-label">Username</label>
+                                        <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                        <input type="text" class="cols-sm-6" name="username" id="username" required />                                    
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="cols-sm-2 control-label">New Password</label>
+                                         <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                         <input type="password" class="cols-sm-6" name="password" id="password"  />                                     
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="newPass" class="cols-sm-2 control-label">Confirm Password</label>
+                                         <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                         <input type="password" class="cols-sm-6" name="newPass" id="newPass" />                                     
+                                    </div>
+                                  
+                                    <div class="form-group ">
+                                        <input type="submit" class="btn btn-primary btn-lg btn-block login-button" value="Update profile">
+                                    </div>
+                                  
+                               
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+</div>
+</body>
+</html>
