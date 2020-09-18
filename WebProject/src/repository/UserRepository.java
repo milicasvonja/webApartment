@@ -26,6 +26,8 @@ public class UserRepository {
 		createFilesDirectory(absPath);		
 		ObjectMapper mapper = new ObjectMapper();
 		File userFile = new File(absPath + PathConfig.USERS_FILE);
+		System.out.println("abs putanja");
+		System.out.println(absPath);
 		boolean created = userFile.createNewFile();
 		if (created) {
 			ArrayList<User> admins = new ArrayList<User>();
